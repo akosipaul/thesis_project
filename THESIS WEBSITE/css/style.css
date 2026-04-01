@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* GLOBAL TRANSITIONS */
+a, button, .media-placeholder {
+  transition: all 0.25s ease;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #000;
+  border-bottom: 1px solid #111;
+}
+
+/* INNER CONTAINER */
+.nav-container {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 28px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* NAV LINKS WRAPPER */
+.nav-links {
+  display: flex;
+  gap: 28px; /* IMPORTANT: spacing between links */
+}
+
+/* NAV LINKS */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative; /* REQUIRED for ::after */
+}
+
+/* HOVER UNDERLINE */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: white;
+  color: black;
+}
+
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(26,26,26,0.4)),
+              url('../1.png') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Cinematic slow zoom */
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 110% 110%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  margin: 20px 0;
+  color: #ccc;
+}
+
+/* PRIMARY BUTTON */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid white;
+}
+
+.btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 40px;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* ABOUT */
+.about p {
+  max-width: 700px;
+  color: #bbb;
+}
+
+/* MEDIA IMAGES */
+.media-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.media-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;      /* makes sure image fills the box */
+  border-radius: 8px;     /* soft corners */
+  border: 1px solid #333; /* matches theme */
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.media-image:hover {
+  transform: translateY(-6px);
+  border-color: #777;
+}
+
+/* DOWNLOAD */
+.download {
+  background: #111;
+  text-align: center;
+}
+
+.download p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* DOWNLOAD BUTTON */
+.download button {
+  padding: 12px 30px;
+  background: white;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.download button:hover {
+  background: #ddd;
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  border-top: 1px solid #111;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 24px;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+/* USER LABEL IN NAVBAR */
+.user-label {
+  color: #ccc;             /* light gray text to fit dark theme */
+  font-size: 0.85rem;      /* slightly smaller than nav links */
+  margin-right: 15px;      /* space between username and logout button */
+  font-weight: 500;        /* semi-bold so it stands out */
+  white-space: nowrap;      /* prevent breaking to next line */
+}
+
+
+.user-label:hover {
+  color: white;            /* subtle highlight on hover */
+  cursor: default;         /* not clickable */
+}

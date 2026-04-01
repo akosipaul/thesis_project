@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+
+  <!-- Reuse your dark theme -->
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <h1 class="logo">ADMIN PANEL</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<section class="admin">
+  <h2>Users Management</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="userTable"></tbody>
+  </table>
+</section>
+
+<script src="js/admin.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
