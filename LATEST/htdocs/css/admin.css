@@ -1,0 +1,123 @@
+/* General page styling */
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styling */
+.navbar {
+  padding: 15px 20px;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.navbar .logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Admin section */
+.admin {
+  padding: 20px;
+}
+
+/* Table wrapper prevents full page horizontal scroll */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* ensures table columns don't shrink too much on desktop */
+}
+
+th, td {
+  border: 1px solid #222;
+  padding: 10px;
+  text-align: center;
+}
+
+input, select {
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+/* Mobile responsive styling */
+@media screen and (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: hidden; /* hide horizontal scroll */
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block; /* stack table elements */
+  }
+
+  thead tr {
+    display: none; /* hide table headers on mobile */
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    position: relative;
+    text-align: left;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #aaa;
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  td:last-child {
+    justify-content: flex-end;
+  }
+
+  /* Inputs, selects, and buttons take full width */
+  input, select, button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
